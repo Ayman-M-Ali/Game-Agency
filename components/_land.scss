@@ -1,0 +1,55 @@
+@import "./mixins";
+.land-section {
+  position: relative;
+}
+.land-section::after {
+  content: "";
+  @include beforeAfter($width: 100%, $height: 100%, $top: -40px, $left: 0);
+  position: absolute;
+  background-color: #EcEcEc;
+  -webkit-transform: skewY(-6deg);
+  -moz-transform: skewY(-6deg);
+  -ms-transform: skewY(-6deg);
+  -o-transform: skewY(-6deg);
+  transform: skewY(-6deg);
+  transform-origin: top left;
+  z-index: -1;
+}
+.land-section .container {
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+  padding-bottom: 120px;
+}
+.land-section .container > p {
+  flex: 1;
+  width: 50%;
+  line-height: 2;
+  font-size: 18px;
+  color: #8f8e8e;
+}
+.land-section .container > p > span {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0;
+  color: #000;
+  letter-spacing: -1px;
+}
+.land-section img {
+  position: relative;
+  width: 600px;
+  -webkit-animation: up-and-down 5s linear infinite;
+  animation: up-and-down 5s linear infinite;
+}
+.land-section .go-down {
+  position: absolute;
+  color: var(--mainColor);
+  bottom: 30px;
+  left: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  transition: var(--main-transition);
+}

@@ -1,0 +1,100 @@
+@import "./mixins";
+.events {
+  @include sectionPaddingPosition($padding-top: var(--main-padding-top), $padding-bottom: var(--main-padding-bottom), $position: relative);
+}
+.events .container {
+  @include flexCenter($justify-content: unset, $align-items: center);
+  flex-wrap: wrap;
+}
+.events img {
+  max-width: 450px;
+}
+.events .info {
+  flex: 1;
+}
+.events .info .time {
+  @include flexCenter($justify-content: center, $align-items: center);
+  gap: 10px;
+  margin: 20px 0;
+}
+.events .info .time .unit {
+  border: 1px solid #d4d4d4;
+  border-radius: 5px;
+  text-align: center;
+  width: 75px;
+  -webkit-transition: var(--main-transition);
+  transition: var(--main-transition);
+}
+.events .info .time .unit span {
+  display: block;
+  -webkit-transition: var(--main-transition);
+  transition: var(--main-transition);
+}
+.events .info .time .unit span:first-child {
+  font-size: 32px;
+  font-weight: bold;
+  padding: 15px;
+  color: var(--mainColor);
+}
+.events .info .time .unit span:last-child {
+  padding: 8px 10px;
+  font-size: 12px;
+  border-top: 1px solid #D4D4D4;
+}
+.events .info .time .unit:hover,
+.events .info .time .unit:hover span:last-child {
+  border-color: var(--mainColor);
+}
+.events .title {
+  font-size: 30px;
+  text-align: center;
+  margin: 40px 0 0;
+}
+.events .description {
+  text-align: center;
+  line-height: 1.7;
+  margin-top: 30px;
+  font-size: 18px;
+  color: #777;
+}
+.events .subscribe {
+  width: 100%;
+  margin-top: 50px;
+}
+.events .subscribe form {
+  width: 600px;
+  margin: 20px auto;
+  padding: 30px 40px;
+  background-color: #F6F5F5;
+  border-radius: 50px;
+  display: flex;
+  gap: 20px;
+}
+.events .subscribe form input[type="email"] {
+  padding: 20px;
+  border: none;
+  border-radius: 50px;
+  flex: 1;
+  caret-color: var(--mainColor);
+}
+.events .subscribe form input[type="email"]:focus {
+  outline: none;
+}
+.events .subscribe form input[type="email"]::placeholder {
+  -webkit-transition: opacity var(--main-transition);
+  transition: opacity var(--main-transition);
+}
+.events .subscribe form input[type="email"]:focus::placeholder {
+  opacity: 0;
+}
+.events .subscribe form input[type="submit"] {
+  color: white;
+  background-color: var(--mainColor);
+  padding: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 50px;
+  border: none;
+  -webkit-transition: var(--main-transition);
+  transition: var(--main-transition);
+}

@@ -1,0 +1,100 @@
+@import "./mixins";
+header {
+  background-color: var(--mainBackground);
+  box-shadow: 0 0 10px #ddd;
+  position: relative;
+}
+header .container {
+  @include flexCenter($justify-content: space-between, $align-items: center);
+  flex-wrap: wrap;
+  position: relative;
+}
+.container .logo {
+  color: var(--mainColor);
+  font-size: 28px;
+  font-weight: bold;
+  height: 72px;
+  @include flexCenter($justify-content: center, $align-items: center);
+}
+.container .main-nav {
+  display: flex;
+}
+.container .main-nav > li:hover .megamenu {
+  opacity: 1;
+  z-index: 100;
+  top: calc(100% + 1px);
+}
+.main-nav > li > a {
+  @include flexCenter($justify-content: space-between, $align-items: center);
+  color: black;
+  height: 72px;
+  padding: 0 25px;
+  position: relative;
+  overflow: hidden;
+  transition: var(--main-transition);
+}
+.main-nav > li > a::before {
+  content: "";
+  position: absolute;
+  @include beforeAfter($width: 100%, $height: 4px, $top: 0, $left: -100%);
+  background-color: var(--mainColor);
+  transition: var(--main-transition);
+}
+.main-nav > li > a:hover {
+  color: var(--mainColor);
+  background-color: #f1f1f1;
+}
+.main-nav > li > a:hover::before {
+  left: 0;
+}
+.container .megamenu {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  padding: 30px;
+  background-color: var(--mainBackground);
+  border-bottom: 2px solid var(--mainColor);
+  z-index: -1;
+  opacity: 0;
+  display: flex;
+  gap: 40px;
+  top: calc(100% + 50px);
+  transition: top var(--main-transition), opacity var(--main-transition);
+}
+.container .megamenu .links {
+  min-width: 240px;
+  flex: 1;
+}
+.megamenu .links li {
+  position: relative;
+}
+.megamenu img {
+  max-width: 100%;
+}
+.megamenu .links li:not(:last-child) {
+  border-bottom: 1px solid #e9e6e6;
+}
+.megamenu .links li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 0;
+  height: 100%;
+  background-color: #fafafa;
+  transition: var(--main-transition);
+}
+.megamenu .links li:hover::before {
+  width: 100%;
+}
+.megamenu .links li a {
+  display: block;
+  padding: 15px;
+  color: var(--mainColor);
+  font-size: 16px;
+  font-weight: bold;
+}
+.megamenu .links li a i {
+  margin-right: 10px;
+}

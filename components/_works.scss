@@ -1,0 +1,55 @@
+@import "./mixins";
+.works {
+  @include sectionPaddingPosition($padding-top: var(--main-padding-top), $padding-bottom: var(--main-padding-bottom), $position: relative);
+  background-color: var(--section-background);
+}
+.works .container {
+  @include flexCenter($justify-content: center, $align-items: center);
+}
+.works .image {
+  max-width: 100%;
+  margin-right: 100px;
+}
+.works .info .box {
+  background-color: #F6F5F5;
+  padding: 30px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  border: 2px solid white;
+  position: relative;
+  z-index: 1;
+}
+.works .info .box::before {
+  content: "";
+  position: absolute;
+  @include beforeAfter($width: 0, $height: 0, $top: 50%, $left: 50%);
+  background-color: #ededed;
+  z-index: -1;
+  -webkit-transition: var(--main-transition);
+  transition: var(--main-transition);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.works .info .box:hover::before{
+  width: 100%;
+  height: 100%;
+}
+.works .info .box img {
+  width: 65px;
+  margin-right: 30px;
+}
+.works .info .box h4 {
+  margin: 0;
+  font-size: 22px;
+}
+.works .info .box p {
+  font-size: 18px;
+  color: #777;
+  margin: 10px 0 0;
+  line-height: 1.7;
+}

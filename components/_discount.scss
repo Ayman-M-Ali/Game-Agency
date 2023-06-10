@@ -1,0 +1,75 @@
+@import "./mixins";
+.discount {
+  display: flex;
+  flex-wrap: wrap;
+}
+.discount .content {
+  text-align: center;
+  padding: 0 20px;
+}
+.discount .content h4 {
+  font-size: 40px;
+  letter-spacing: -2px;
+}
+.discount .content p {
+  line-height: 1.7;
+  font-size: 18px;
+  max-width: 500px;
+}
+.discount .image {
+  @include flexCenter($justify-content: center, $align-items: center);
+  background-image: url(../imgs/discount-background1.jpg);
+  background-size: cover;
+  color: white;
+  flex-basis: 50%;
+  position: relative;
+  z-index: 1;
+  animation: change-background 5s linear infinite;
+  -webkit-animation: change-background 5s linear infinite;
+}
+.discount .image::before {
+  content: "";
+  position: absolute;
+  @include beforeAfter($width: 100%, $height: 100%, $top: 0, $left: 0);
+  background-color: rgb(23 135 244 / 97%);
+  z-index: -1;
+}
+.discount .content img {
+  width: 300px;
+  max-width: 100%;
+}
+.discount .form {
+  @include flexCenter($justify-content: center, $align-items: center);
+  flex-basis: 50%;
+  padding-block: 40px;
+}
+.discount .form .input {
+  display: block;
+  width: 100%;
+  margin-bottom: 25px;
+  padding: 15px;
+  border: none;
+  border-bottom: 1px solid #CCC;
+  background-color: #F9F9f9;
+  caret-color: var(--mainColor);
+}
+.discount .form textarea.input {
+  resize: none;
+  height: 200px;
+}
+.discount .form .input:focus {
+  outline: none;
+}
+.discount .form [type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background-color: var(--mainColor);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: var(--main-transition);
+  transition: var(--main-transition);
+}

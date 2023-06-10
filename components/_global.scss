@@ -1,0 +1,91 @@
+@import "./mixins";
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Cairo", sans-serif;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+.spikes {
+  position: relative;
+}
+.spikes::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  right: 0;
+  height: 30px;
+  background-size: 30px 30px;
+  background-image: linear-gradient(135deg, white 25%, transparent 25%), 
+    linear-gradient(225deg, white 25%, transparent 25%);
+  z-index: 1;
+}
+.dots {
+  background-image: url(../imgs/dots.png);
+  width: 186px;
+  height: 204px;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+.dots-up {
+  top: 200px;
+  right: 0;
+}
+.dots-down {
+  bottom: 200px;
+  left: 0;
+}
+/* container */
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+h3 {
+  font-size: 30px;
+  width: fit-content;
+  margin: 0 auto 80px;
+  padding: 10px 20px;
+  border: 2px solid #000;
+  position: relative;
+  z-index: 1;
+  transition: var(--main-transition);
+}
+h3::before,
+h3::after {
+  content: "";
+  @include beforeAfter($width: 12px, $height: 12px, $top: 50%, $left: unset);
+  background-color: var(--mainColor);
+  border-radius: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+}
+h3::before {
+  left: -30px;
+}
+h3::after {
+  right: -30px;
+}
+h3:hover::before {
+  z-index: -1;
+  -webkit-animation: left-move .5s linear forwards;
+  animation: left-move .5s linear forwards;
+}
+h3:hover::after {
+  z-index: -1;
+  -webkit-animation: right-move .5s linear forwards;
+  animation: right-move .5s linear forwards;
+}
+h3:hover {
+  color: white;
+  border: 2px solid white;
+  transition-delay: .5s;
+}

@@ -1,0 +1,24 @@
+@mixin gridColumns($grid-template-columns: 0, $gap: 0) {
+  display: grid;
+  grid-template-columns: $grid-template-columns;
+  gap: $gap;
+}
+
+@mixin flexCenter($justify-content: center, $align-items: center) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin sectionPaddingPosition($padding-top: var(--main-padding-top), $padding-bottom: var(--main-padding-bottom), $position: relative) {
+  padding-top: $padding-top;
+  padding-bottom: $padding-bottom;
+  position: $position;
+}
+
+@mixin beforeAfter($width: 0, $height: 0, $top: 0, $left: 0) {
+  width: $width;
+  height: $height;
+  top: $top;
+  left: $left;
+}

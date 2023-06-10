@@ -1,0 +1,81 @@
+@import "./mixins";
+.team {
+  @include sectionPaddingPosition($padding-top: var(--main-padding-top), $padding-bottom: var(--main-padding-bottom), $position: relative);
+}
+.team .container {
+  @include gridColumns($grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)), $gap: 30px);
+}
+.team .box {
+  position: relative;
+}
+.team .box::before,
+.team .box::after {
+  content: "";
+  background-color: #f3f3f3;
+  position: absolute;
+  @include beforeAfter($width: unset, $height: 100%, $top: 0, $left: unset);
+  right: 0;
+  border-radius: 10px;
+  -webkit-transition: var(--main-transition);
+  transition: var(--main-transition);
+}
+.team .box::before {
+  z-index: -2;
+  width: calc(100% - 60px);
+}
+.team .box::after {
+  z-index: -1;
+  width: 0;
+  background-color: #e4e4e4;
+}
+.team .box:hover::after {
+  width: calc(100% - 60px);
+}
+.team .box .data {
+  @include flexCenter($justify-content: unset, $align-items: center);
+  padding-top: 60px;
+}
+.team .box .data img {
+  width: calc(100% - 60px);
+  -webkit-transition: var(--main-transition);
+  transition: var(--main-transition);
+  border-radius: 10px;
+}
+.team .box:hover img {
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+}
+.team .box .data .social {
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.team .box .data .social a {
+  width: 60px;
+  height: 30px;
+  @include flexCenter($justify-content: center, $align-items: center);
+}
+.team .box .data .social a:hover i {
+  color: var(--mainColor);
+}
+.team .box .data .social i {
+  color: #777;
+  -webkit-transition: var(--main-transition);
+  transition: var(--main-transition);
+}
+.team .box .info {
+  padding-left: 80px;
+}
+.team .box .info h4 {
+  margin-bottom: 0;
+  color: var(--mainColor);
+  font-size: 22px;
+  -webkit-transition: var(--main-transition);
+  transition: var(--main-transition);
+}
+.team .box .info p {
+  padding-top: 0;
+  padding-bottom: 10px;
+}

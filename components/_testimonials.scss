@@ -1,0 +1,41 @@
+@import "./mixins";
+.testimonials {
+  @include sectionPaddingPosition($padding-top: var(--main-padding-top), $padding-bottom: var(--main-padding-bottom), $position: relative);
+  background-color: var(--section-background);
+}
+.testimonials .container {
+  @include gridColumns($grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)), $gap: 30px);
+}
+.testimonials .box {
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 2px 4px rgb(0 0 0 / 7%);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 7%);
+  position: relative;
+}
+.testimonials .box img {
+  @include beforeAfter($width: 100px, $height: 100px, $top: -50px, $left: unset);
+  position: absolute;
+  right: -10px;
+  border-radius: 50%;
+  border: 10px solid var(--section-background);
+}
+.testimonials .box h5 {
+  font-size: 24px;
+  margin: 0 0 10px;
+}
+.testimonials .box .title {
+  color: var(--mainColor);
+  margin-bottom: 10px;
+  display: block;
+}
+.testimonials .box .rate .filled {
+  color: #FFC107;
+}
+.testimonials .box p {
+  line-height: 1.5;
+  color: #777;
+  margin-top: 10px;
+  margin-bottom: 0;
+}

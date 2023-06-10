@@ -1,0 +1,98 @@
+@import "./mixins";
+.footer {
+  background-color: #191919;
+  padding: 70px 0 0;
+}
+.footer .container {
+  @include gridColumns($grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)), $gap: 40px);
+}
+.footer .box h2 {
+  font-size: 50px;
+  color: #fff;
+  margin: 0 0 20px;
+}
+.footer .box .social {
+  display: flex;
+}
+.footer .box .social li {
+  margin-right: 10px;
+}
+.footer .box .social li a {
+  @include flexCenter($justify-content: center, $align-items: center);
+  background-color: #313131;
+  color: #B9B9B9;
+  display: inline-flex;
+  font-size: 20px;
+  width: 50px;
+  height: 50px;
+  -webkit-transition: var(--main-transition);
+  transition: var(--main-transition);
+}
+.footer .box .social .facebook:hover {
+  background-color: #1877f2;
+}
+.footer .box .social .twitter:hover {
+  background-color: #1da1f2;
+}
+.footer .box .social .youtube:hover {
+  background-color: #ff0000;
+}
+.footer .box p {
+  color: #B9B9B9;
+  line-height: 2;
+}
+.footer .box .links li {
+  padding: 15px 0;
+  -webkit-transition: var(--main-transition);
+  transition: var(--main-transition);
+}
+.footer .box .links li:not(:last-child) {
+  border-bottom: 1px solid #444;
+}
+.footer .box .links li:hover {
+  padding-left: 10px;
+}
+.footer .box .links li a {
+  color: #B9B9B9;
+  -webkit-transition: var(--main-transition);
+  transition: var(--main-transition);
+}
+.footer .box .links li:hover a {
+  color: white;
+}
+.footer .box .links li a::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\F101";
+  font-weight: 900;
+  margin-right: 10px;
+  color: var(--mainColor);
+}
+.footer .box .line {
+  @include flexCenter($justify-content: unset, $align-items: center);
+  margin-bottom: 30px;
+  color: #B9B9B9;
+}
+.footer .box .line i {
+  font-size: 24px;
+  color: var(--mainColor);
+  margin-right: 10px;
+}
+.footer .box .line .info {
+  line-height: 1.7;
+  flex: 1;
+}
+.footer .box .line .info span {
+  display: block;
+}
+.footer .footer-gallery img {
+  width: 78px;
+  border: 3px solid white;
+  margin: 2px;
+}
+.footer .copy-right {
+  padding: 25px 0;
+  margin: 50px 0 0;
+  text-align: center;
+  color: white;
+  border-top: 1px solid #444;
+}

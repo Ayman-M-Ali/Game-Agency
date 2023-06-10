@@ -1,0 +1,131 @@
+@import "./mixins";
+.features {
+  @include sectionPaddingPosition($padding-top: var(--main-padding-top), $padding-bottom: var(--main-padding-bottom), $position: relative);
+}
+.features .container {
+  @include gridColumns($grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)), $gap: 30px);
+}
+.box-quality,
+.box-time,
+.box-passion {
+  border: 1px solid #ccc;
+  text-align: center;
+}
+.img-holder {
+  position: relative;
+  overflow: hidden;
+}
+.box-quality .img-holder::before,
+.box-time .img-holder::before,
+.box-passion .img-holder::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgb(243 71 58 / 60%);
+}
+.box-time .img-holder::before {
+  background-color: rgb(1 151 133 / 60%);
+}
+.box-passion .img-holder::before{
+  background-color: rgb(12 149 246 / 60%);
+}
+.box-quality .img-holder::after,
+.box-time .img-holder::after,
+.box-passion .img-holder::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-style: solid;
+  border-width: 0px 0px 170px 500px;
+  border-color: transparent transparent  white transparent;
+  -webkit-transition: var(--main-transition);
+  transition: var(--main-transition);
+}
+.box-quality:hover .img-holder::after,
+.box-time:hover .img-holder::after,
+.box-passion:hover .img-holder::after {
+  border-width: 170px 500px 170px 0px;
+}
+.box-quality img,
+.box-time img,
+.box-passion img {
+  max-width: 100%;
+}
+.box-quality h2,
+.box-time h2,
+.box-passion h2 {
+  width: fit-content;
+  font-size: 40px;
+  margin: auto;
+  position: relative;
+}
+.box-quality h2::after,
+.box-time h2::after,
+.box-passion h2::after {
+  content: "";
+  @include beforeAfter($width: calc(100% - 30px), $height: 4px, $top: unset, $left: 15px);
+  background-color: #F3473A;
+  position: absolute;
+  bottom: -20px;
+}
+.box-time h2::after {
+  background-color: #019785;
+}
+.box-passion h2::after {
+  background-color: var(--mainColor);
+}
+.box-quality p,
+.box-time p,
+.box-passion p {
+  font-size: 20px;
+  padding: 25px;
+  margin: 30px 0;
+  line-height: 2;
+  color: #777;
+}
+.box-quality a,
+.box-time a,
+.box-passion a {
+  display: block;
+  width: fit-content;
+  color: #F3473A;
+  font-weight: bold;
+  font-size: 22px;
+  padding: 10px 30px;
+  border: 3px solid #F3473A;
+  border-radius: 5px;
+  margin: 0 auto 30px;
+  -webkit-transition: var(--main-transition);
+  transition: var(--main-transition);
+  background-position: right bottom;
+}
+.box-time a {
+  color: #019785;
+  border: 3px solid #019785;
+}
+.box-passion a {
+  color: var(--mainColor);
+  border: 3px solid var(--mainColor);
+}
+.box-quality:hover a {
+  color: white;
+  background: linear-gradient(to right, #F3473A 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: left bottom;
+}
+.box-time:hover a {
+  color: white;
+  background: linear-gradient(to right, #019785 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: left bottom;
+}
+.box-passion:hover a {
+  color: white;
+  background: linear-gradient(to right, var(--mainColor) 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: left bottom;
+}
